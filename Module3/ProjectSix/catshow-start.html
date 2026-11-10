@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+  <title>Cat Slideshow</title>
+  <style>
+    :root {
+      --bg-1: #070913;
+      --bg-2: #141a35;
+      --ink: #edf5ff;
+      --muted: #94a0c0;
+      --cyan: #42e7ff;
+      --amber: #ffc048;
+      --lime: #8dff62;
+      --panel: rgba(8, 13, 34, 0.78);
+      --stroke: rgba(92, 119, 200, 0.5);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 28px 16px 48px;
+      font-family: "Rajdhani", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 13% 24%, rgba(66, 231, 255, 0.2), transparent 28%),
+        radial-gradient(circle at 84% 12%, rgba(255, 192, 72, 0.16), transparent 30%),
+        linear-gradient(145deg, var(--bg-1), var(--bg-2) 55%, #0a1123);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(160, 178, 228, 0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(160, 178, 228, 0.09) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(transparent 1%, black 20%, black 80%, transparent 98%);
+    }
+
+    #app {
+      max-width: 1120px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      font-family: "Orbitron", sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .hud {
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      background: linear-gradient(105deg, rgba(9, 20, 49, 0.88), rgba(4, 9, 26, 0.95));
+      padding: 18px;
+      box-shadow: 0 20px 34px rgba(2, 8, 24, 0.5);
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 18px;
+    }
+
+    button {
+      width: 160px;
+      padding: 10px;
+      border-radius: 9px;
+      border: 1px solid rgba(90, 121, 210, 0.7);
+      cursor: pointer;
+      background: rgba(10, 27, 55, 0.92);
+      color: #e6f7ff;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: transform 150ms ease, border-color 150ms ease, color 150ms ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      border-color: var(--lime);
+      color: var(--lime);
+    }
+
+    .muted { color: var(--muted); }
+
+    .deck {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--stroke);
+      border-radius: 14px;
+      padding: 16px;
+      background: var(--panel);
+      box-shadow: 0 12px 26px rgba(2, 10, 26, 0.45);
+    }
+
+    .explanation {
+      border: 1px solid var(--stroke);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      background: rgba(9, 18, 42, 0.72);
+      color: #dbe8ff;
+      line-height: 1.45;
+    }
+
+    .explanation h3 {
+      margin: 0 0 8px;
+      font-family: "Orbitron", sans-serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+
+    .parent {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .next-btn {
+      order: 1;
+      margin-top: 4px;
+      margin-bottom: 12px;
+    }
+
+    .cat-image {
+      order: 2;
+    }
+
+    img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      border: 1px solid rgba(120, 149, 223, 0.55);
+      box-shadow: 0 10px 20px rgba(5, 14, 34, 0.45);
+    }
+
+    .bar {
+      height: 10px;
+      background: linear-gradient(90deg, var(--cyan), var(--amber));
+      border-radius: 999px;
+      margin: 6px 0 14px;
+      box-shadow: 0 0 10px rgba(66, 231, 255, 0.45);
+    }
+
+    @media (max-width: 700px) {
+      button { width: 100%; }
+      .parent { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <section class="hud">
+      <h2>{{ title }}</h2>
+      <p class="subtitle">Character Select: pick your cat class to enter the arena.</p>
+    </section>
+
+    <div class="controls">
+      <button @click="whichcat='abob'">American Bobtail</button>
+      <button @click="whichcat='manx'">Manx</button>
+      <button @click="whichcat='beng'">Bengal</button>
+      <button @click="whichcat='siam'">Siamese</button>
+      <button @click="whichcat='ragd'">Ragdoll</button>
+    </div>
+
+    <div class="deck">
+      <div class="card" v-if="whichcat==='abob'">
+        <cat-show breed="abob"></cat-show>
+      </div>
+      <div class="card" v-if="whichcat==='manx'">
+        <cat-show breed="manx"></cat-show>
+      </div>
+      <div class="card" v-if="whichcat==='beng'">
+        <cat-show breed="beng"></cat-show>
+      </div>
+      <div class="card" v-if="whichcat==='siam'">
+        <cat-show breed="siam"></cat-show>
+      </div>
+      <div class="card" v-if="whichcat==='ragd'">
+        <cat-show breed="ragd"></cat-show>
+      </div>
+    </div>
+
+    <section class="explanation">
+      <h3>Explaination</h3>
+      <p>A main Vue instance controls which breed is selected through buttons that update the whichcat variable. Based on that value, Vue conditionally displays a reusable cat-show; component using v-if. The component receives a breed prop from the parent, which tells it which breed's data to request. Inside the component, reactive data properties store images, breed info, and rating stats. When the component is created, or when the breed prop changes, it automatically calls loadNextImage() to fetch fresh data. loadNextImage() uses Axios to request ten images for the breed, stores them in an array, then makes a second request to get detailed breed information. Those values are saved into the component's data, and Vue instantly updates the template. The slideshow() function cycles through the image array by updating an index and setting the current image; the img tag is bound to image.url, so each click of “Next Image” shows the next picture. The template displays all text with {{ }} bindings and uses dynamic style bindings to turn 1-5 ratings into visual bars, showing how Vue links data, logic, and HTML together without reloading the page.</p>
+    </section>
+  </div>
+  <script src="catshow-start.js"></script>
+</body>
+</html>

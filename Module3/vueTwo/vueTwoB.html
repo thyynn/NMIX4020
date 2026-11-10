@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Part Two - A </title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="drinkorder.js" defer></script>
+</head>
+<body>
+    <div id="drink">
+        <h2>{{ drinkname }}</h2>
+        <p>{{ fact }}</p>
+        <button @click="showDrink">Show Next Drink</button>
+
+        <select v-model="selectedDrink" v-on:change="displayDrink">
+        <option disabled value="">-- Choose a Drink --</option>
+        <option v-for="eachDrink in drink" :value="eachDrink.drink_name">
+        {{ eachDrink.drink_name }}
+        </option>
+        </select>
+    </div>
+</body>
+</html>

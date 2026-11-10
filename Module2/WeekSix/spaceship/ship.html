@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+ <link rel="stylesheet" href="ship.css">
+</head>
+
+<body>
+   
+    <div id="ship">
+        <div id="shipLight"></div>
+    </div>
+    <button onclick="reverseDirection()">Reverse Direction</button>
+    <button onclick="rotateShip()">Rotate Ship</button>
+</body>
+</html>
+<script>
+    let ship = document.querySelector('#ship');
+    let shipLight = document.querySelector('#shipLight')
+    let howFar = 0;
+    let light = 0;
+    let direction = 1; // 1 = right, -1 = left
+    let angle = 0;
+    
+    setInterval(function() {
+        howFar += 5 * direction; 
+        
+        const shipWidth = ship.offsetWidth;
+        const screenWidth = window.innerWidth;
+
+        // Wrap ship to opposite side when fully off-screen
+        if (direction === 1 && howFar > screenWidth) {
+            howFar = -shipWidth;
+        } else if (direction === -1 && howFar < -shipWidth) {
+            howFar = screenWidth;
+        }
+        
+        ship.style.left = howFar + "px"; // Update CSS left value
+        light++
+        if (light === 25) {
+            shipLight.style.backgroundColor = 'black';
+        }
+
+        if (light === 50) {
+            shipLight.style.backgroundColor = 'red';
+            light = 0;
+        }
+    }, 10);
+   
+    function reverseDirection() {
+        direction *= -1;
+    }
+
+    function rotateShip(){
+        console.log("Before Rotation:", angle);
+
+        angle = (angle + 45) % 360;
+        ship.style.transform = `rotate(${angle}deg)`;
+
+        console.log("After Rotation:", angle);
+    }
+   
+</script>

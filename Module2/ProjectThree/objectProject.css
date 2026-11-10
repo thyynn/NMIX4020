@@ -1,0 +1,225 @@
+:root {
+    --paper: #fffaf7;
+    --peach: #ffe5dc;
+    --rose: #d0676d;
+    --berry: #8e3f55;
+    --ink: #2a1d24;
+    --card: #ffffff;
+    --line: #f0d9d1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Manrope", "Segoe UI", sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at top right, #ffd7cd 2%, transparent 44%),
+        radial-gradient(circle at 18% 20%, #ffe5ef 2%, transparent 40%),
+        linear-gradient(140deg, var(--paper), var(--peach));
+}
+
+.page-shell {
+    width: min(1120px, 92vw);
+    margin: 2rem auto 3rem;
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: 280px 1fr;
+    grid-template-areas:
+        "hero hero"
+        "controls details";
+}
+
+.hero-card,
+.controls-card,
+.details-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 12px 26px rgba(113, 68, 78, 0.12);
+    padding: 1.2rem 1rem;
+}
+
+.hero-card {
+    grid-area: hero;
+}
+
+.controls-card {
+    grid-area: controls;
+    align-self: start;
+    position: sticky;
+    top: 1rem;
+}
+
+.details-card {
+    grid-area: details;
+}
+
+.eyebrow {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--rose);
+}
+
+h1,
+h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    margin: 0.35rem 0 0.55rem;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.intro,
+#aboutme {
+    margin: 0;
+    line-height: 1.55;
+}
+
+.hero-pills {
+    margin-top: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.hero-pills span {
+    border-radius: 999px;
+    border: 1px solid #f4c7c8;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.78rem;
+    background: #fff3f2;
+    color: #7f4d58;
+}
+
+#makeup-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+#makeup-buttons button {
+    border: 1px solid #efc7bf;
+    border-radius: 12px;
+    background: #fff;
+    color: #5a2b3a;
+    text-align: left;
+    font-weight: 600;
+    padding: 0.65rem 0.82rem;
+    cursor: pointer;
+    transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease, color 140ms ease;
+}
+
+#makeup-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 16px rgba(168, 84, 100, 0.16);
+}
+
+#makeup-buttons button.active {
+    background: linear-gradient(120deg, var(--rose), var(--berry));
+    color: #fff;
+    border-color: transparent;
+}
+
+#image {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 0.9rem;
+}
+
+.product-card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 8px 18px rgba(123, 63, 73, 0.08);
+}
+
+.product-media {
+    min-height: 220px;
+    background: #fff3ef;
+    display: grid;
+    place-items: center;
+    padding: 0.8rem;
+}
+
+.product-media img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+}
+
+.image-placeholder {
+    color: #9b7881;
+    font-size: 0.84rem;
+}
+
+.product-info {
+    padding: 0.75rem;
+}
+
+.product-info h3 {
+    margin: 0;
+    font-size: 0.94rem;
+}
+
+.price {
+    margin: 0.4rem 0 0.55rem;
+    font-weight: 700;
+    color: #8e3f55;
+}
+
+@media (max-width: 520px) {
+    .page-shell {
+        width: min(1120px, 94vw);
+        margin-top: 1.1rem;
+    }
+
+    .hero-card,
+    .controls-card,
+    .details-card {
+        padding: 0.95rem 0.8rem;
+    }
+}
+
+@media (max-width: 860px) {
+    .page-shell {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "hero"
+            "controls"
+            "details";
+    }
+
+    .controls-card {
+        position: static;
+    }
+
+    #makeup-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #makeup-buttons button {
+        text-align: center;
+    }
+
+    .product-media {
+        min-height: 170px;
+    }
+
+    .product-media img {
+        max-height: 200px;
+    }
+}

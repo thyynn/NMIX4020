@@ -1,0 +1,68 @@
+body {
+    text-align: center;
+    font-family:Monospace;
+    background-color: azure;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin: 40px;
+}
+
+.playerBox {
+  border: 4px solid hotpink;      
+  border-radius: 20px;         
+  padding: 15px;
+  width: 220px;               
+  background: white;           
+  box-shadow: 2px 4px 15px rgba(0,0,0,0.2); 
+  text-align: center;
+  margin: auto;
+  width: 20%;
+  transition: transform 0.25s ease;
+  transform-origin: center;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("./fontsProject/Quicksand-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.playerBox h3 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.playerBox:hover {
+  transform: scale(1.06); 
+}
+
+.playerBox img {
+  width: 180px;                
+  height: 270px;               
+  object-fit: cover;           
+  border-radius: 10px;        
+  border: 2px solid #f6d6ff;     
+}
+
+#slideshow1 img, #slideshow2 img, #slideshow3 img {
+  width: 180px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+button {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: lightpink;
+    color:black;
+    border-radius: 5px;
+    border: 2px solid hotpink;
+}

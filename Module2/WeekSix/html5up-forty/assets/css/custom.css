@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap");
+
+/* Custom overrides for Forty template */
+
+/* Keep default tile colors; only make the hover overlay hot pink */
+.tiles article:hover:before {
+	background-color: #ff1493 !important;
+	opacity: 0.85;
+}
+
+/* Use Bitcount Grid Double for all heading levels */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Bitcount Grid Double", monospace !important;
+}

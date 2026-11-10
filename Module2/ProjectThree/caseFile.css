@@ -1,0 +1,155 @@
+:root {
+  --paper: #f5f1e8;
+  --ink: #1e1e1e;
+  --accent: #c76464;
+  --muted: #6b6358;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top, #ffffff 0%, var(--paper) 55%, #e6ddcf 100%);
+  line-height: 1.6;
+}
+
+header {
+  padding: 48px 24px 24px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+header p {
+  margin: 0 auto;
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.section-nav {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.section-nav button {
+  border: 1px solid #d8c8b3;
+  background: #ffffff;
+  color: var(--ink);
+  padding: 8px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.section-nav button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px var(--shadow);
+}
+
+.section-nav button.is-active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+main {
+  max-width: 980px;
+  margin: 0 auto 64px;
+  padding: 0 24px 48px;
+  display: grid;
+  gap: 24px;
+}
+
+section {
+  background: #ffffff;
+  border: 1px solid #e3dacb;
+  border-left: 6px solid var(--accent);
+  padding: 20px 24px;
+  box-shadow: 0 12px 24px var(--shadow);
+}
+
+section.is-hidden {
+  display: none;
+}
+
+section h2 {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+}
+
+.list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.list li {
+  padding: 10px 12px;
+  background: #fbf8f2;
+  border: 1px solid #efe6d6;
+}
+
+.person-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.person-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid #e3dacb;
+  flex-shrink: 0;
+}
+
+@media (max-width: 560px) {
+  .person-card {
+    align-items: center;
+  }
+
+  .person-photo {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.label {
+  display: inline-block;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+  color: var(--accent);
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding-bottom: 32px;
+}

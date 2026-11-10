@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cats Phase 0</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 20px;
+    }
+    
+    img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      margin-top: 10px;
+      display: block;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .warn { color:#b91c1c; font-weight:600; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <li v-for="eachCat in catArray">{{ eachCat.name }}
+      <img :src="dpart1 + eachCat.reference_image_id + dpart2">
+      <p><strong>Origin:</strong> {{ eachCat.origin }}</p>
+      <p :class="{ 'warn': eachCat.child_friendly <= 2 }">
+        <strong>Child Friendly:</strong> {{ eachCat.child_friendly }}/5
+      </p>
+      <br><br>
+    </li>
+  </div>
+  <script src="kitty-start.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fortune Teller</title>
+  <link href="fortune.css" rel="stylesheet">
+</head>
+<body>
+
+  <h1>Glance into the Magic Ball and Receive your Fortune</h1>
+
+  <input type="text" id="namehere" placeholder="Enter your name">
+  <button onclick="fortune()">Reveal My Fortune</button>
+  <br></br>
+  <div id="result">Your fortune will appear here...</div>
+
+  <script>
+    let outcomes = [
+        "You will get bts tickets.",
+        "Your project group members will do their work.",
+        "Your project group members will not do their work.",
+        "You have the possiblility to become a billionaire.",
+        "There's a chance you get bone cancer.",
+        "Your house might explode. Watch out your friend might be behind it."
+    ];
+
+    function fortune() {
+        // Step 1: get name from input field
+        let name = document.querySelector('#namehere').value;
+        
+        // Step 2: pick a random index number
+        let randomIndex = Math.floor(Math.random() * outcomes.length);
+        
+        //Step 3: get the corresponding fortune
+        let selectedFortune = outcomes[randomIndex];
+
+        //Step 4: display the result
+        let result = document.querySelector('#result');
+        result.innerHTML = name + ", your fortune is: " + selectedFortune;
+    }
+  </script>
+
+</body>
+</html>

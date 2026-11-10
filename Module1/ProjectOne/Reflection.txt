@@ -1,0 +1,8 @@
+For this project, I developed a three-page website and learned several new skills, especially coding a website from scratch and adding accessibility elements like semantic HTML and alt text for images.
+One of my biggest struggles was figuring out what each part of the code did and how the different CSS layers affected the background. 
+It took time to understand how multiple layers and styles interacted, but working through that helped me better understand how CSS works.
+I’m really proud that everything works correctly between the tabs and that the website looks good overall.
+Linking all the pages together and making sure the layout and design were consistent across the site felt like a big accomplishment.
+I also feel more confident using HTML and CSS to structure and style a website.
+In the future, I want to continue building my skills so I can create better websites and other programs.
+I’d like to learn more advanced CSS and layout techniques, improve my design skills, and explore more programming tools so I can make more complex and professional projects.

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Two</title>
+    <link href="form1.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        Form Practice
+    </header>
+    <br>
+    <main> 
+        <form action="showme.html" method="get">
+            <label for="number">Pick a number:</label><br>
+            <input type="range" id="volume" name="volume" min="0" max="100" value="50">
+            <span id="volumeValue">50</span>
+        <br>
+            <label for="favColor">Pick a color:</label><br>
+            <input type="color" id="favColor" name="favColor" value="#ff0000">
+            <span id="colorValue">#ff0000</span>
+
+            <div id="colorPreview" style="width:100px; height:50px; border:1px solid black;"></div>
+
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <script>
+    const slider = document.getElementById("volume");
+    const sliderOutput = document.getElementById("volumeValue");
+
+    sliderOutput.textContent = slider.value;
+
+    slider.oninput = function () {
+        sliderOutput.textContent = this.value;
+    };
+
+    const colorPicker = document.getElementById("favColor");
+    const colorText = document.getElementById("colorValue");
+    const colorBox = document.getElementById("colorPreview");
+
+    colorText.textContent = colorPicker.value;
+    colorBox.style.backgroundColor = colorPicker.value;
+
+    colorPicker.oninput = function () {
+        colorText.textContent = this.value;
+        colorBox.style.backgroundColor = this.value;
+    };
+</script>
+
+</body>
+</html>

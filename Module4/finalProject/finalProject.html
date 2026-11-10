@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Card Game Project</title>
+  <link href="finalProject.css" rel="stylesheet">
+</head>
+<body>
+  <div class="overlay start-overlay" id="startOverlay">
+    <div class="overlay-card">
+      <h2>Ready to Play?</h2>
+      <p>Find all 8 pairs before you run out of hearts.</p>
+      <button id="startButton" class="overlay-btn">Start Game</button>
+    </div>
+  </div>
+
+  <div class="overlay win-overlay hidden" id="winOverlay">
+    <div class="overlay-card">
+      <h2>Congratulations!</h2>
+      <p>You matched all pairs.</p>
+      <p class="overlay-stats">Moves: <span class="final-moves">0</span></p>
+      <p class="overlay-stats">Lives Left: <span class="final-lives">0</span></p>
+      <button id="playAgainButton" class="overlay-btn">Play Again</button>
+    </div>
+  </div>
+
+  <main class="app-shell">
+    <header class="game-header">
+      <h1>Idol Memory Cards</h1>
+      <p class="subtitle">Match every pair in as few moves as possible.</p>
+    </header>
+
+    <section class="game-panel">
+      <div class="hud">
+        <div class="hud-left">
+          <p class="score-line">Moves <span class="score"></span></p>
+          <p class="lives-line">Lives <span class="lives" aria-label="Lives"></span></p>
+        </div>
+        <div class="actions">
+          <button onclick="restart()">Restart</button>
+        </div>
+      </div>
+
+      <div class="progress-wrap" aria-label="Pair progress">
+        <div class="progress-track">
+          <div class="progress-fill"></div>
+        </div>
+        <p class="progress-text"><span class="pairs-found">0</span>/<span class="pairs-total">0</span> pairs</p>
+      </div>
+
+      <p class="status" aria-live="polite"></p>
+
+      <div class="grid-container"></div>
+    </section>
+
+    <section class="reflection-panel">
+      <details>
+        <summary>Reflection Tab</summary>
+        <div class="reflection-content">
+          <p><strong>Project Function:</strong> This project is a 4x4 memory matching game where players flip two cards at a time, match character pairs, and try to clear the board before running out of lives.</p>
+          <p><strong>Design Choices:</strong> I used a pink gradient background, animated bubble effects, character-based card art, alternating card-back designs, and HUD elements (moves, hearts, and progress bar) to make the game playful and readable. The background was loosely based on the cover of one of the animes featured in the game.</p>
+          <p><strong>Concepts Used:</strong> I used DOM selection and updates, event listeners, arrays/objects for card data, shuffle logic with randomization, game state variables, conditional matching logic, timed resets with <code>setTimeout</code>, CSS transforms for card flips, and dynamic audio playback tied to user interaction like in the Jukebox project.</p>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <script src="finalProject.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trend Watch</title>
+<style>
+    body {
+        font-family: Georgia, "Times New Roman", serif;
+        margin: 0;
+        background-color: #f5f5f5;
+    }
+
+    h1 {
+        text-align: center;
+        padding: 20px;
+        margin: 0;
+        background-color: #111;
+        color: white;
+        letter-spacing: 2px;
+    }  
+
+    #articles {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .article-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease;
+    }
+
+    .article-card:hover {
+        transform: scale(1.02);
+    }
+
+    .article-card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .article-card h2 {
+        font-size: 20px;
+        margin: 15px;
+    }
+
+    .article-card h2 a {
+        text-decoration: none;
+        color: #111;
+    }
+
+    .article-card h2 a:hover {
+        color: #c00;
+    }
+
+    .article-card p {
+        margin: 0 15px 15px 15px;
+        color: #444;
+        font-size: 14px;
+    }
+
+    .article-card p:last-child {
+        font-size: 12px;
+        color: #888;
+    }
+</style>
+</head>
+<body>
+
+        <h1>Trend Watch</h1>
+     
+
+
+        <div id="articles">
+            
+        </div>
+    
+
+    <script src="project4-start.js"></script>
+</body>
+</html>

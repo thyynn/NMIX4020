@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue My Drink Order</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="VueIII.js" defer></script>
+</head>
+<body>
+
+  <div id="drink">
+    <div :style="[divStructure]" v-for="eachDrink in drink" :key="eachDrink.counter">
+      <h2 :style="[divText]">{{ eachDrink.drink_name }}</h2>
+      <p>{{ eachDrink.fact }}</p>
+    </div>
+  </div>
+
+
+
+
+  </div>
+</body>
+</html>

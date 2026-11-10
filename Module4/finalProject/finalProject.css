@@ -1,0 +1,374 @@
+:root {
+  --bg-1: #ffe3ef;
+  --bg-2: #ffc7e0;
+  --panel: #ffeeee;
+  --text-main: #15304f;
+  --text-soft: #486580;
+  --accent: #a32bff;
+  --accent-dark: #801fca;
+  --danger: #ee4d75;
+  --card-back-1: #9fd0ff;
+  --card-back-2: #63a7f0;
+  --shadow-soft: 0 10px 28px rgba(22, 64, 114, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--text-main);
+  background:
+    linear-gradient(160deg, var(--bg-1), var(--bg-2));
+  display: grid;
+  place-items: center;
+  padding: 28px 16px;
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  width: min(980px, 100%);
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-repeat: repeat;
+}
+
+body::before {
+  opacity: 0.7;
+  background-image:
+    radial-gradient(circle, #ffffffc9 0 20px, transparent 21px),
+    radial-gradient(circle, #ffffffb8 0 14px, transparent 15px),
+    radial-gradient(circle, #ffffffa6 0 10px, transparent 11px);
+  background-size: 300px 300px, 240px 240px, 190px 190px;
+  background-position: 15% 100%, 65% 120%, 35% 140%;
+  animation: bubbles-rise 16s linear infinite;
+}
+
+body::after {
+  opacity: 0.5;
+  background-image:
+    radial-gradient(circle, #ffffffbf 0 16px, transparent 17px),
+    radial-gradient(circle, #ffffffab 0 12px, transparent 13px);
+  background-size: 330px 330px, 240px 240px;
+  background-position: 80% 130%, 30% 115%;
+  animation: bubbles-rise-slow 22s linear infinite;
+}
+
+@keyframes bubbles-rise {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-340px);
+  }
+}
+
+@keyframes bubbles-rise-slow {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-420px);
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(10, 31, 57, 0.58);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+.overlay-card {
+  width: min(420px, 100%);
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  padding: 26px 20px;
+}
+
+.overlay-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.8rem;
+}
+
+.overlay-card p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.overlay-stats {
+  margin-top: 9px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.overlay-btn {
+  margin-top: 18px;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+  box-shadow: 0 6px 16px rgba(43, 127, 255, 0.35);
+  cursor: pointer;
+}
+
+.game-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  letter-spacing: 0.02em;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  color: var(--text-soft);
+  font-size: 1rem;
+}
+
+.game-panel {
+  background: var(--panel);
+  border-radius: 26px;
+  box-shadow: var(--shadow-soft);
+  padding: 18px;
+}
+
+.hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hud-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.score-line,
+.lives-line,
+.progress-text,
+.status {
+  margin: 0;
+}
+
+.score-line,
+.lives-line {
+  font-size: 1.03rem;
+  font-weight: 700;
+}
+
+.lives {
+  color: var(--danger);
+  letter-spacing: 0.04em;
+}
+
+.actions button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(180deg, var(--accent), var(--accent-dark));
+  box-shadow: 0 6px 16px rgba(43, 127, 255, 0.35);
+  cursor: pointer;
+}
+
+.progress-wrap {
+  margin: 14px 0 10px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: #e3edfb;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #c24dcf, #b748c4);
+  transition: width 0.28s ease;
+}
+
+.progress-text {
+  margin-top: 7px;
+  color: var(--text-soft);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.status {
+  min-height: 1.4em;
+  font-weight: 700;
+  color: var(--text-soft);
+  margin-bottom: 10px;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(86px, 112px));
+}
+
+.card {
+  aspect-ratio: 2 / 3;
+  border-radius: 14px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.45s ease;
+  box-shadow: 0 8px 18px rgba(15, 44, 76, 0.18);
+}
+
+.front-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.card[data-name="aira"] .front-image,
+.card[data-name="nagisa"] .front-image,
+.card[data-name="ichigo"] .front-image,
+.card[data-name="mizuki"] .front-image {
+  object-fit: contain;
+  background-color: #fff;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  border-radius: 14px;
+  inset: 0;
+  overflow: hidden;
+}
+
+.card .front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+  background: #fff;
+}
+
+.card .back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fcf6f6;
+}
+
+.back-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.back-image-card1 {
+  transform: scale(1.25);
+}
+
+.back-image-card2 {
+  transform: scale(1.04);
+}
+
+.reflection-panel {
+  margin-top: 16px;
+  background: var(--panel);
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+  padding: 14px 16px;
+}
+
+.reflection-panel details {
+  color: var(--text-main);
+}
+
+.reflection-panel summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.reflection-content {
+  margin-top: 10px;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+.reflection-content p {
+  margin: 0 0 10px;
+}
+
+.reflection-content p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 860px) {
+  .game-panel {
+    padding: 14px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(4, minmax(75px, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 16px 10px;
+  }
+
+  .hud {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  .grid-container {
+    gap: 10px;
+  }
+}

@@ -1,0 +1,52 @@
+html {
+    font-size: 15px;
+}
+
+ul {
+  padding-left: 2rem;
+  list-style-type: none;
+}
+
+ul li {
+  padding-left: 2rem;
+  background-image: url("star.png");
+  background-position: 0 0;
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+}
+
+a {
+  outline-color: transparent;
+}
+
+a:link {
+  color: #9c56ff;
+}
+
+a:visited {
+  color: #ffa3f9;
+}
+
+a:focus {
+  text-decoration: none;
+  background: #ff28df;
+}
+
+a:hover {
+  text-decoration: none;
+  background: #feaaf4;
+}
+
+a:active {
+  background: #cba6ff;
+  color: #aae5fe;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("fonts/Quicksand-Regular.otf") format("opentype");
+}
+
+#teams {
+  font-family: "Quicksand", sans-serif;
+}

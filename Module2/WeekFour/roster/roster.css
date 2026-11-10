@@ -1,0 +1,21 @@
+#goDawgs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+    list-style: none; 
+    padding: 0;
+  }
+
+#goDawgs li {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 150px;
+}
+
+#goDawgs img {
+    width: 100px;
+    height: auto;
+  }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jukebook Project</title>
+  <link rel="stylesheet" href="jukebox.css" />
+</head>
+<body>
+  <main>
+    <section class="controls">
+      <div id="pause"></div>
+      <div id="nowPlaying">Pick a song card to start listening.</div>
+    </section>
+
+    <div id="jukebox"></div>
+
+    <section class="hero">
+      <h1>Click on a song to preview their favorite song on Arirang and playlist.</h1>
+      <p>Check out their music taste with this Spotify playlist and stream Arirang! </p>
+    </section>
+
+    <section class="player-shell">
+      <iframe
+        id="spotifyPlayer"
+        src="https://open.spotify.com/embed/album/3ukkRHDHbN8tNRPKsGZR1h?utm_source=generator"
+        title="Spotify player"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      ></iframe>
+    </section>
+  </main>
+
+  <script src="jukebook.js"></script>
+</body>
+</html>

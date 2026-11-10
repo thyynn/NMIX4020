@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style> 
+        body {
+            display: flex;
+        }
+
+        div {
+            background-color: #000;
+            border-radius: 50%;
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } 
+        .danger {
+            background-color: red;
+        }
+
+        .min-width {
+            background-color: gray;
+        }
+    </style>
+    <title>Asteroids API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="count"> </div>
+
+    <div id="astlist"> </div>
+
+    <div id="showData"></div>
+
+</body>
+</html>
+
+<script>
+
+    let asteroidDisplay = document.body;
+
+    $( document ).ready(function() {
+        $.getJSON('', function(data) { });
+        $.getJSON('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=zaivW83Ca4ONlYl5pk00PCwDxeWoyk42sc1RoQSD', function(data) {
+
+            let asteroidCount = data.near_earth_objects.length;
+            let dataSource = data.near_earth_objects;
+
+            // $('#count').text("Number of asteroids: " + asteroidCount);
+            let pos = 0;
+
+            for (let i = 0; i < dataSource.length; i++) {
+                let maxWidth = dataSource[i].estimated_diameter.kilometers.estimated_diameter_max * 5;
+                let minWidth = dataSource[i].estimated_diameter.kilometers.estimated_diameter_min * 5;
+                // console.log(maxWidth);
+                // $('#showData').append(maxWidth + " km<br>");
+               
+                outerDiv = document.createElement("div");
+                outerDiv.setAttribute("style", "width:" + maxWidth + "px; height:" + maxWidth + "px; margin-top: " + pos + "px");
+
+                innerDiv = document.createElement("div");
+                innerDiv.classList.add("min-width");
+                innerDiv.setAttribute("style", "min-width:" + minWidth + "px; min-height:" + minWidth + "px");
+
+                outerDiv.appendChild(innerDiv);
+                asteroidDisplay.appendChild(outerDiv);
+
+                if (dataSource[i].is_potentially_hazardous_asteroid) {
+                    outerDiv.classList.add("danger");
+                }
+                pos += maxWidth;
+            }
+        });
+
+    })
+</script>
+

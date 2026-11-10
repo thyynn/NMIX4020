@@ -1,0 +1,92 @@
+.topgradient {
+  background: linear-gradient(to bottom right, rgb(180, 203, 255) 20%, rgb(255, 184, 210));
+  font-family: serif;
+  padding: 20px;      
+  min-height: 50vh;   
+  box-sizing: border-box;       
+}
+
+h1 {
+  font-size: 50px;
+  margin-top: -10px
+}
+
+header::first-letter {
+  font-size: 44px;
+  color: red;
+}
+
+header::first-line {
+  color: #ff0000;
+}
+
+header {
+  color: rgba(0,0,0,0.9);
+}
+
+.radial {
+  height: 120px;
+  border: 5px solid rgb(255, 0, 149);
+  background: radial-gradient(ellipse, pink, rgb(234, 138, 251), lightblue, rgb(255, 255, 197));
+  margin-bottom: 20px;
+}
+
+.stacked {
+    width: 300px;
+    height: 150px;
+    background:
+    linear-gradient(217deg, rgb(255, 150, 150), transparent 50%),
+    linear-gradient(127deg, rgb(146, 255, 146), transparent 50%),
+    linear-gradient(336deg, rgb(164, 164, 255), transparent 50%);
+}
+
+h2 {
+  transform: rotate(10deg);
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.challenge {
+  margin-top: 40px;
+  background: linear-gradient(to bottom right, rgb(254, 249, 189) 10%, rgb(255, 198, 162));
+  padding: 30px;
+}
+
+.box1 {
+  width: 400px;
+  padding: 20px;
+  background: #a3b58a;
+  border: 12px solid navy;
+  border-radius: 30px;
+  background-clip: padding-box;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.box2-container {
+  background: repeating-linear-gradient(
+    90deg,
+    blue 0px,
+    blue 20px,
+    transparent 20px,
+    transparent 40px
+  );
+  padding: 20px;
+  border-radius: 30px;
+  width: 450px;
+}
+
+.box2 {
+  background: linear-gradient(#ff5555, #444);
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px;
+  text-shadow:
+    2px 2px 0 black,
+    4px 4px 0 red,
+    6px 6px 0 blue;
+}

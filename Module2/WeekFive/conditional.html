@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conditionals Practice</title>
+    <style>
+        :root {
+            --paper: #fefcf3;
+            --line-blue: rgba(90, 135, 220, 0.35);
+            --line-red: rgba(225, 84, 84, 0.6);
+            --ink: #1e2c3b;
+            --shadow: rgba(35, 45, 60, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            background: linear-gradient(180deg, #d8dee8 0%, #c4cedd 100%);
+            font-family: "Patrick Hand", "Comic Sans MS", "Marker Felt", cursive;
+            color: var(--ink);
+        }
+
+        .paper {
+            width: min(780px, 95vw);
+            padding: 2rem 2rem 2rem 4.4rem;
+            border-radius: 10px;
+            position: relative;
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    transparent 0,
+                    transparent 2.05rem,
+                    var(--line-blue) 2.05rem,
+                    var(--line-blue) 2.12rem
+                ),
+                var(--paper);
+            box-shadow: 0 14px 35px var(--shadow);
+        }
+
+        .paper::before {
+            content: "";
+            position: absolute;
+            top: 0.8rem;
+            bottom: 0.8rem;
+            left: 3rem;
+            width: 2px;
+            background: var(--line-red);
+        }
+
+        h1 {
+            font-size: clamp(1.45rem, 3.5vw, 2rem);
+            margin: 0.8rem 0 0.5rem;
+            letter-spacing: 0.4px;
+        }
+
+        select,
+        button {
+            font: inherit;
+            font-size: 1.1rem;
+            border: 2px solid rgba(30, 44, 59, 0.35);
+            border-radius: 6px;
+            background: #fffef9;
+            color: var(--ink);
+            padding: 0.35rem 0.5rem;
+            margin-right: 0.4rem;
+        }
+
+        button {
+            cursor: pointer;
+            transition: transform 120ms ease, background 120ms ease;
+        }
+
+        button:hover {
+            background: #fff7cf;
+            transform: translateY(-1px);
+        }
+
+        p {
+            margin: 0.55rem 0 1.2rem;
+            font-size: 1.2rem;
+            min-height: 1.6rem;
+        }
+
+        #response,
+        #responseTwo {
+            background: rgba(255, 245, 170, 0.65);
+            padding: 0.05rem 0.3rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <main class="paper">
+
+    <h1>What is the sum of 14 + 10?</h1>
+
+    <!-- <input type="number" id="userInput"> -->
+
+    <select id="userInput" onchange="compare()"></select>
+    <button onclick="compare()">Try It</button>
+
+    <p><span id="response">Your feedback will appear here.</span></p>
+
+    <h1>What is 24 * 3?</h1>
+    <select id="userInputTwo" onchange="compareTwo()"></select>
+    <button onclick="compareTwo()">Try It</button>
+    <p><span id="responseTwo">Your feedback will appear here.</span></p>
+
+    <script src="conditional.js"></script>
+    </main>
+</body>
+</html>

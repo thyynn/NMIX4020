@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Part Two - A </title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="drinkorder.js" defer></script>
+</head>
+<body>
+    <div id="drink">
+        <div v-for="eachDrink in drink">
+            <h2> {{eachDrink.drink_name}} </h2>
+            <p> {{eachDrink.fact}} </p>
+            
+        </div>
+    </div>
+</body>
+</html>

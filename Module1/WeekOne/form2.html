@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Two</title>
+    <link href="form1.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        Form Practice
+    </header>
+    <br>
+    <main> 
+        <form action="showme.html" method="get">
+            <label for="favoriteColor">Pick One:</label>
+            <select id="pick" name="pick">
+                <option value="makeup"> Makeup </option>
+                <option value="skincare"> Skincare </option>
+                <option value="fashion"> Fashion </option>
+            </select>
+            <br><br>
+            <div>
+            <label for="hobby">Favorite Hobby:</label>
+            <input list="hobbies" id="hobby" name="hobby">
+            </div>
+            <br>
+            <datalist id="hobbies">
+                <option value="Gaming">
+                <option value="Photography">
+                <option value="Cooking">
+                <option value="Traveling">
+            </datalist>
+            
+            <fieldset>
+                <legend>Preferred Pet</legend>
+                <label> <input type="radio" name="pet" value="dog"> Dog </label>
+
+                <label> <input type="radio" name="pet" value="cat"> Cat </label>
+
+                <label> <input type="radio" name="pet" value="other"> Other </label>
+            </fieldset>
+            <br>
+            <label for="age">Number of concerts you've been to:</label>
+            <input type="number" id="numOfCon" name="numOfCon" min="0" max="100">
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+</html>
